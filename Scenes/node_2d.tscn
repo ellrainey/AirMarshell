@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfqbltajbx2l4"]
+
+[ext_resource type="PackedScene" uid="uid://dsnilhiunyhca" path="res://Sprites/turtleTEST2.aseprite" id="1_k6vvm"]
+[ext_resource type="Script" path="res://Sprites/turtleTEST2.gd" id="2_wn6ad"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="turtleTEST2" parent="." instance=ExtResource("1_k6vvm")]
+texture_filter = 1
+animation = &"midright"
+script = ExtResource("2_wn6ad")

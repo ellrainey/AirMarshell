@@ -1,0 +1,25 @@
+[remap]
+
+importer="Aseprite AnimatedSprite2D Import"
+type="PackedScene"
+uid="uid://cq8wms6uq2mr"
+path="res://.godot/imported/turtleTEST3.aseprite-ac2269102e35e7a13d037260d7c09e5f.scn"
+
+[deps]
+
+source_file="res://Sprites/turtleTEST3.aseprite"
+dest_files=["res://.godot/imported/turtleTEST3.aseprite-ac2269102e35e7a13d037260d7c09e5f.scn"]
+
+[params]
+
+spritesheet/layout=0
+spritesheet/fixed_rows_count=1
+spritesheet/fixed_columns_count=1
+spritesheet/border_type=0
+spritesheet/trim=false
+spritesheet/ignore_empty=false
+spritesheet/merge_duplicates=false
+animation/default/name="default"
+animation/default/direction=0
+animation/default/repeat_count=0
+animation/autoplay=""

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://e2owyg56hv36"]
+
+[ext_resource type="PackedScene" uid="uid://bq6ctaigiji8i" path="res://Sprites/Settings1.aseprite" id="1_jaeyj"]
+[ext_resource type="Script" path="res://Scenes/difficulty_settings.gd" id="1_ke87o"]
+[ext_resource type="PackedScene" uid="uid://h5b4n5u6ese4" path="res://Sprites/menuSelect.aseprite" id="3_foj5c"]
+
+[node name="DifficultySettings" type="Node2D"]
+script = ExtResource("1_ke87o")
+
+[node name="Settings1" parent="." instance=ExtResource("1_jaeyj")]
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(6, 6)
+
+[node name="menuSelect" parent="." instance=ExtResource("3_foj5c")]
+texture_filter = 1
+position = Vector2(376, 126)
+scale = Vector2(6, 6)
+
+[node name="menuSelect2" parent="menuSelect" instance=ExtResource("3_foj5c")]
+texture_filter = 1
+position = Vector2(66, 2.08165e-12)
+rotation = 3.14159
+
+[node name="Label" type="Label" parent="."]
+offset_left = 915.0
+offset_right = 1152.0
+offset_bottom = 69.0

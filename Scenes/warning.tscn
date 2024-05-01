@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b18lkel3ah6xu"]
+
+[ext_resource type="Texture2D" uid="uid://dylde6hvp2myq" path="res://Sprites/Warning.aseprite" id="1_d62uc"]
+
+[node name="Warning" type="Node2D"]
+
+[node name="warningSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(6, 6)
+texture = ExtResource("1_d62uc")

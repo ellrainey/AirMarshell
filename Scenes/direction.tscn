@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddatq8uy6au7g"]
+
+[ext_resource type="PackedScene" uid="uid://7w12t65r5ddg" path="res://Sprites/directions2.aseprite" id="1_k0b7v"]
+
+[node name="Direction" type="Node2D"]
+
+[node name="directions2" parent="." instance=ExtResource("1_k0b7v")]
+texture_filter = 1
+position = Vector2(-6, 0)
+scale = Vector2(6, 6)
+frame = 3
+frame_progress = 0.924502

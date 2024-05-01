@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfkhknoq0yuk1"]
+
+[ext_resource type="PackedScene" uid="uid://cmdty0qsbkrw2" path="res://Sprites/MainMenu1.aseprite" id="1_0hdrt"]
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_1v6u6"]
+[ext_resource type="PackedScene" uid="uid://h5b4n5u6ese4" path="res://Sprites/menuSelect.aseprite" id="2_ioorm"]
+[ext_resource type="Script" path="res://Sprites/menuSelect.gd" id="3_0vxqx"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_1v6u6")
+
+[node name="mainMenu1" parent="." instance=ExtResource("1_0hdrt")]
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(6, 6)
+
+[node name="menuSelect" parent="." instance=ExtResource("2_ioorm")]
+texture_filter = 1
+position = Vector2(360, 325)
+scale = Vector2(6, 6)
+script = ExtResource("3_0vxqx")
+
+[node name="menuSelect2" parent="menuSelect" instance=ExtResource("2_ioorm")]
+texture_filter = 1
+position = Vector2(73, 2.08165e-12)
+rotation = -3.14159
