@@ -31,15 +31,15 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept") and pos == 1:
 		Vars.difficulty = 1
 	if Input.is_action_just_pressed("ui_accept") and pos == 2:
-		Vars.difficulty = 2
-	if Input.is_action_just_pressed("ui_accept") and pos == 3:
 		Vars.difficulty = 3
+	if Input.is_action_just_pressed("ui_accept") and pos == 3:
+		Vars.difficulty = 5
 	if Input.is_action_just_pressed("ui_accept") and pos == 4:
 		get_tree().change_scene_to_file.bind("res://Scenes/main_menu.tscn").call_deferred()
 		
 	if Vars.difficulty == 1:
 		$Label.text = "Current Difficulty: Easy"
-	elif Vars.difficulty == 2:
-		$Label.text = "Current Difficulty: Medium"
 	elif Vars.difficulty == 3:
+		$Label.text = "Current Difficulty: Medium"
+	elif Vars.difficulty == 5:
 		$Label.text = "Current Difficulty: Hard"
