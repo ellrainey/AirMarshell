@@ -39,7 +39,16 @@ func _process(delta):
 		
 	if Vars.difficulty == 1:
 		$Label.text = "Current Difficulty: Easy"
+		$Settings1/easySelect.frame = 1
+		$Settings1/mediumSelect.frame = 0
+		$Settings1/hardSelect.frame = 0
 	elif Vars.difficulty == 3:
 		$Label.text = "Current Difficulty: Medium"
+		$Settings1/easySelect.frame = 0
+		$Settings1/mediumSelect.frame = 1
+		$Settings1/hardSelect.frame = 0
 	elif Vars.difficulty == 5:
 		$Label.text = "Current Difficulty: Hard"
+		$Settings1/easySelect.frame = 0
+		$Settings1/mediumSelect.frame = 0
+		$Settings1/hardSelect.frame = 1

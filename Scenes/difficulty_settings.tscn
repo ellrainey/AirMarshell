@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://e2owyg56hv36"]
+[gd_scene load_steps=7 format=3 uid="uid://e2owyg56hv36"]
 
 [ext_resource type="PackedScene" uid="uid://bq6ctaigiji8i" path="res://Sprites/Settings1.aseprite" id="1_jaeyj"]
 [ext_resource type="Script" path="res://Scenes/difficulty_settings.gd" id="1_ke87o"]
 [ext_resource type="PackedScene" uid="uid://h5b4n5u6ese4" path="res://Sprites/menuSelect.aseprite" id="3_foj5c"]
+[ext_resource type="PackedScene" uid="uid://bcw2nubj35aav" path="res://Sprites/easySelect.aseprite" id="3_gi7oa"]
+[ext_resource type="PackedScene" uid="uid://c7y0dgr3q1ehr" path="res://Sprites/mediumSelect.aseprite" id="4_ijguw"]
+[ext_resource type="PackedScene" uid="uid://deadfrtwk0w2v" path="res://Sprites/hardSelect.aseprite" id="5_tawl1"]
 
 [node name="DifficultySettings" type="Node2D"]
 script = ExtResource("1_ke87o")
@@ -11,6 +14,15 @@ script = ExtResource("1_ke87o")
 texture_filter = 1
 position = Vector2(576, 324)
 scale = Vector2(6, 6)
+
+[node name="easySelect" parent="Settings1" instance=ExtResource("3_gi7oa")]
+position = Vector2(0.166667, -31.5)
+
+[node name="mediumSelect" parent="Settings1" instance=ExtResource("4_ijguw")]
+position = Vector2(1.66667, -10.3333)
+
+[node name="hardSelect" parent="Settings1" instance=ExtResource("5_tawl1")]
+position = Vector2(1.83333, 10.5)
 
 [node name="menuSelect" parent="." instance=ExtResource("3_foj5c")]
 texture_filter = 1
@@ -23,6 +35,7 @@ position = Vector2(66, 2.08165e-12)
 rotation = 3.14159
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 915.0
 offset_right = 1152.0
 offset_bottom = 69.0
