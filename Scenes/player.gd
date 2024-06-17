@@ -2,12 +2,11 @@ extends Node2D
 
 var playerLane = 3
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#player movement
 	if Input.is_action_just_pressed("left") and playerLane >= 2:
 		playerLane -= 1
 		position.x -= 228

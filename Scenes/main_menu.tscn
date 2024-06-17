@@ -3,23 +3,35 @@
 [ext_resource type="PackedScene" uid="uid://cmdty0qsbkrw2" path="res://Sprites/MainMenu1.aseprite" id="1_0hdrt"]
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_1v6u6"]
 [ext_resource type="PackedScene" uid="uid://h5b4n5u6ese4" path="res://Sprites/menuSelect.aseprite" id="2_ioorm"]
-[ext_resource type="Script" path="res://Sprites/menuSelect.gd" id="3_0vxqx"]
+
+[sub_resource type="GDScript" id="GDScript_6ermj"]
+script/source = "extends AnimatedSprite2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+"
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_1v6u6")
 
-[node name="mainMenu1" parent="." instance=ExtResource("1_0hdrt")]
+[node name="mainMenuBackground" parent="." instance=ExtResource("1_0hdrt")]
 texture_filter = 1
 position = Vector2(576, 324)
 scale = Vector2(6, 6)
 
 [node name="menuSelect" parent="." instance=ExtResource("2_ioorm")]
 texture_filter = 1
-position = Vector2(360, 325)
+position = Vector2(376, 264)
 scale = Vector2(6, 6)
-script = ExtResource("3_0vxqx")
+script = SubResource("GDScript_6ermj")
 
 [node name="menuSelect2" parent="menuSelect" instance=ExtResource("2_ioorm")]
 texture_filter = 1
-position = Vector2(73, 2.08165e-12)
+position = Vector2(66, 2.08165e-12)
 rotation = -3.14159

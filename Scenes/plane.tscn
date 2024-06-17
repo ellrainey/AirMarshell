@@ -5,7 +5,7 @@
 
 [node name="Plane" type="Node2D"]
 
-[node name="PlaneBaseTEST7" parent="." instance=ExtResource("1_7dmuu")]
+[node name="planeSprite" parent="." instance=ExtResource("1_7dmuu")]
 texture_filter = 1
 position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(6, 6)

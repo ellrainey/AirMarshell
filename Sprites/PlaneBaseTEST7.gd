@@ -4,16 +4,12 @@ var time = 0
 var intTime = 0
 var exists = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	animation = "gone"
 	set_frame_and_progress(0,0)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	#make plane move in resolution with the game
+	#plane movement, based on difficulty and score
 	if exists:
 		animation = "standard"
 		if get_parent().get_parent().score <= 50:

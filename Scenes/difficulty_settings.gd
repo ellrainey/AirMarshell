@@ -4,6 +4,8 @@ extends Node2D
 var pos = 1
 var rows = 4
 var dist = 138
+var first = 126
+var last = 600
 
 func _ready():
 	#highlight difficulty text on start
@@ -16,31 +18,29 @@ func _ready():
 			$hardSelect.frame = 1
 
 func _process(delta):
-	#move the menu selector
+	#selection and selector movement
 	if Input.is_action_just_pressed("ui_down"):
 		match pos:
 			3:
 				pos += 1
-				$menuSelect.position.y = 600
-			4:
+				$menuSelect.position.y = last
+			rows:
 				pos = 1
-				$menuSelect.position.y = 126
+				$menuSelect.position.y = first
 			_:
 				pos += 1
 				$menuSelect.position.y += dist
 	if Input.is_action_just_pressed("ui_up"):
 		match pos:
-			4:
+			rows:
 				pos -= 1
 				$menuSelect.position.y = 402
 			1:
-				pos = 4
-				$menuSelect.position.y = 600
+				pos = rows
+				$menuSelect.position.y = last
 			_:
 				pos -= 1
 				$menuSelect.position.y -= dist
-
-	#set difficulty
 	if Input.is_action_just_pressed("ui_accept"):
 		match pos:
 			1:

@@ -1,35 +1,5 @@
 extends Node2D
 
-
-
-#V2 GOALS BY END OF FIRST WEEK OF APRIL
-#new scenes for main menu, tutorial, and settings (and victory?)
-#easy medium and hard change the speed of planes and the amount of directions (easy just has left and right) (hard includes the landing)
-#getting to 100 on easy gives you the victory message and the bronze shell
-#getting to 100 on normal gives victory and the silver shell and unlocks hard mode
-#getting to 100 on hard gives victory and the diamond shell
-#
-#game over had restart and main menu buttons (press space to select text necessary in main menu and possibly game over scrreen)
-#score text in game and game over is with pixel art
-#
-#add new plane frams and turtle roll
-#add sounds and music
-#add animation for plane correctly directed 
-#incorrectly directing plane gives warning that wears off, incorrectly directing a plane while warned results in game over (add to tutorial)
-#difficulty settings have some signal in game to show what you're playing (shell/stick color)
-#switch to signals for plane and stick stuff makes incorrect direction stuff easier
-#refactor code in planeBaseTest7
-#exit button in main menu
-#make last red frame a green frame
-#sucess animation
-#lose animation
-#
-#
-#make back button red in menus
-#add exit button
-#warning add timer
-#for warning make it so it's only if it resets back to zero and then misinput then gameover
-
 var rng = RandomNumberGenerator.new()
 var playerPlaneReady = false
 var planeReady = [false, false, false, false, false]
@@ -44,10 +14,9 @@ func _ready():
 
 #Function called when a plane is correctly directed by the player
 func planeDirected(lane, correct):
-	
 	var plane = str("Plane", lane)
-	var planeFrame = str(plane, "/PlaneBaseTEST7")
-	var directionPath = str("Direction", lane, "/directions2")
+	var planeFrame = str(plane, "/planeSprite")
+	var directionPath = str("Direction", lane, "/directions")
 	if correct:
 		get_node(planeFrame).play("success")
 	else:
@@ -58,27 +27,18 @@ func planeDirected(lane, correct):
 	get_node(directionPath).set_frame_and_progress(0, 0)
 	score += 1
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	print($Player/turtleTEST3.stickDir)
-	#print(warningTime)
-	#reset the game on spacebar button press
-	#if Input.is_action_just_pressed("ui_accept"):
-		#get_tree().reload_current_scene()
-	
+	#tick down warning timer if player is currently under warning
 	if warningTime > 0:
 		warningTime -= 1 * delta
-	
 	if warningTime <= 0:
-		#print("IN HERE")
 		$Player/Warning.visible = false
-	
+
 	#planes are not ready by default
 	for i in range(5):
 		planeReady[i] = false
-	
-	#if and when a plane spawns
+
+	#determine if and when a plane spawns
 	time += delta
 	if time >= 1:
 		var planeSpawn = rng.randi_range(0, 2)
@@ -88,9 +48,9 @@ func _process(delta):
 			var directionSpawn = rng.randi_range(1,4)
 			for i in range(5):
 				if locationSpawn == i + 1:
-					var planePathLoc = str("Plane", i+1, "/PlaneBaseTEST7")
+					var planePathLoc = str("Plane", i+1, "/planeSprite")
 					var planePathPos = str("Plane", i+1)
-					var dirPathLoc = str("Direction", i+1, "/directions2")
+					var dirPathLoc = str("Direction", i+1, "/directions")
 					if get_node(planePathLoc).exists == false:
 						if directionSpawn < 3:
 							get_node(dirPathLoc).set_frame_and_progress(directionSpawn, 0)
@@ -100,32 +60,28 @@ func _process(delta):
 						get_node(planePathPos).position.y = 66
 						get_node(planePathLoc).exists = true
 						get_node(planePathLoc).set_frame_and_progress(0, 0)
-	
+
 	#if plane is in correct range of frames, plane is ready
 	for i in range(5):
-		var planePathReady = str("Plane", i+1, "/PlaneBaseTEST7")
+		var planePathReady = str("Plane", i+1, "/planeSprite")
 		if 2 <= get_node(planePathReady).frame and get_node(planePathReady).frame <= 6 and gameOver == false:
 			planeReady[i] = true#something about pplaneready is messing stuff up
-	
-	if gameOver == true:
-		gameOverTime += 1
-	if gameOverTime == 10:
-		get_tree().change_scene_to_file.bind("res://Scenes/Game_Over.tscn").call_deferred()
-		
+
 	#game over
 	for i in range(5):
-		var planePathGameOver = str("Plane", i+1, "/PlaneBaseTEST7")
+		var planePathGameOver = str("Plane", i+1, "/planeSprite")
 		if get_node(planePathGameOver).frame == 7 and gameOver == false:
 			Vars.finalScore = score
 			get_node(planePathGameOver).play("lose")
 			print(get_node(planePathGameOver).animation)
-			#get_node(planePathGameOver).set_frame_and_progress(0,0)
 			gameOver = true
-			
-		
-	
+	if gameOver == true:
+		gameOverTime += 1
+	if gameOverTime == 10:
+		get_tree().change_scene_to_file.bind("res://Scenes/Game_Over.tscn").call_deferred()
+
 	#planes being directed
-	var newDirectionPath = str("Direction", $Player.playerLane, "/directions2" )
+	var newDirectionPath = str("Direction", $Player.playerLane, "/directions" )
 	if planeReady[$Player.playerLane - 1] == true:
 		if $Player/turtleTEST3.stickDir == get_node(newDirectionPath).frame:
 			planeDirected($Player.playerLane, true)
@@ -135,10 +91,7 @@ func _process(delta):
 			warningTime = 5
 		elif $Player/turtleTEST3.stickDir != 0 and $Player/Warning.visible == true: #and gameOver == false:
 			Vars.finalScore = score
-			#get_node(planePathGameOver).play("lose")
-			#print(get_node(planePathGameOver).animation)
-			#get_node(planePathGameOver).set_frame_and_progress(0,0)
 			gameOver = true
 
 	#score display
-	$Label.text = str(score)
+	$scoreLabel.text = str(score)

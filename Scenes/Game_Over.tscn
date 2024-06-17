@@ -2,18 +2,30 @@
 
 [ext_resource type="Script" path="res://Scenes/Game_Over.gd" id="1_6pxjb"]
 [ext_resource type="PackedScene" uid="uid://b2nomhwx18kju" path="res://Sprites/GAMEOVER1.aseprite" id="1_51w7c"]
-[ext_resource type="Script" path="res://Sprites/menuSelect.gd" id="3_g2bup"]
 [ext_resource type="PackedScene" uid="uid://h5b4n5u6ese4" path="res://Sprites/menuSelect.aseprite" id="3_n12kd"]
 
-[node name="GAMEOVER" type="Node2D"]
+[sub_resource type="GDScript" id="GDScript_6ermj"]
+script/source = "extends AnimatedSprite2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+"
+
+[node name="GameOver" type="Node2D"]
 script = ExtResource("1_6pxjb")
 
-[node name="GAMEOVER1" parent="." instance=ExtResource("1_51w7c")]
+[node name="gameOverBackground" parent="." instance=ExtResource("1_51w7c")]
 texture_filter = 1
 position = Vector2(576, 324)
 scale = Vector2(6, 6)
 
-[node name="Label" type="Label" parent="."]
+[node name="scoreLabel" type="Label" parent="."]
 offset_left = 12.0
 offset_top = 270.0
 offset_right = 1140.0
@@ -23,11 +35,22 @@ theme_override_font_sizes/font_size = 60
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="diffLabel" type="Label" parent="."]
+visible = false
+offset_left = 749.0
+offset_top = 563.0
+offset_right = 1151.0
+offset_bottom = 647.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="menuSelect" parent="." instance=ExtResource("3_n12kd")]
 texture_filter = 1
 position = Vector2(330, 450)
 scale = Vector2(6, 6)
-script = ExtResource("3_g2bup")
+script = SubResource("GDScript_6ermj")
 
 [node name="menuSelect" parent="menuSelect" instance=ExtResource("3_n12kd")]
 position = Vector2(83, 2.08165e-12)

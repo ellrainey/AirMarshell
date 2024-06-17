@@ -2,17 +2,14 @@ extends AnimatedSprite2D
 
 var stickDir = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+	pass
 	
+func _process(delta):
 	#default stick position is set to 0
 	stickDir = 0
 	
+	#player stick direction
 	if Input.is_action_pressed("rightstick_left") and Input.is_action_pressed("rightstick_right"):
 		if Input.is_action_pressed("leftstick_left") and Input.is_action_pressed("leftstick_right"):
 			play("midmid")
