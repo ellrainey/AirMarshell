@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://c114i1x5cyfcd"]
+
+[ext_resource type="Script" path="res://Scenes/main_screen.gd" id="1_6k54a"]
+[ext_resource type="Texture2D" uid="uid://ccipo6t20pgy8" path="res://Sprites/Screentest1.aseprite" id="2_hfc1s"]
+[ext_resource type="PackedScene" uid="uid://dtbqqc6hcahvj" path="res://Scenes/player.tscn" id="3_7hbsa"]
+[ext_resource type="PackedScene" uid="uid://b18lkel3ah6xu" path="res://Scenes/warning.tscn" id="4_1pkr7"]
+[ext_resource type="PackedScene" uid="uid://do1p22poicg68" path="res://Sprites/PlaneBaseTEST7.aseprite" id="5_fhkw3"]
+[ext_resource type="Script" path="res://Sprites/PlaneBaseTEST7.gd" id="6_c6d4i"]
+[ext_resource type="PackedScene" uid="uid://7w12t65r5ddg" path="res://Sprites/directions2.aseprite" id="7_pmng6"]
+
+[node name="MainScreen" type="Node2D"]
+script = ExtResource("1_6k54a")
+
+[node name="Screentest1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(6, 6)
+texture = ExtResource("2_hfc1s")
+
+[node name="Player" parent="." instance=ExtResource("3_7hbsa")]
+position = Vector2(576, 426)
+
+[node name="Warning" parent="Player" instance=ExtResource("4_1pkr7")]
+visible = false
+position = Vector2(2.08165e-12, -90)
+
+[node name="Plane1" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="planeSprite" parent="Plane1" instance=ExtResource("5_fhkw3")]
+scale = Vector2(6, 6)
+animation = &"success"
+script = ExtResource("6_c6d4i")
+
+[node name="Plane2" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="planeSprite" parent="Plane2" instance=ExtResource("5_fhkw3")]
+scale = Vector2(6, 6)
+script = ExtResource("6_c6d4i")
+
+[node name="Plane3" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="planeSprite" parent="Plane3" instance=ExtResource("5_fhkw3")]
+scale = Vector2(6, 6)
+script = ExtResource("6_c6d4i")
+
+[node name="Plane4" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="planeSprite" parent="Plane4" instance=ExtResource("5_fhkw3")]
+scale = Vector2(6, 6)
+script = ExtResource("6_c6d4i")
+
+[node name="Plane5" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="planeSprite" parent="Plane5" instance=ExtResource("5_fhkw3")]
+texture_filter = 1
+scale = Vector2(6, 6)
+script = ExtResource("6_c6d4i")
+
+[node name="Direction1" type="Node2D" parent="."]
+position = Vector2(114, 612)
+
+[node name="directions" parent="Direction1" instance=ExtResource("7_pmng6")]
+texture_filter = 1
+position = Vector2(6, 2.08165e-12)
+scale = Vector2(6, 6)
+
+[node name="Direction2" type="Node2D" parent="."]
+position = Vector2(342, 594)
+
+[node name="directions" parent="Direction2" instance=ExtResource("7_pmng6")]
+texture_filter = 1
+position = Vector2(6, 0)
+scale = Vector2(6, 6)
+
+[node name="Direction3" type="Node2D" parent="."]
+position = Vector2(570, 576)
+
+[node name="directions" parent="Direction3" instance=ExtResource("7_pmng6")]
+texture_filter = 1
+position = Vector2(6, 2.08165e-12)
+scale = Vector2(6, 6)
+
+[node name="Direction4" type="Node2D" parent="."]
+position = Vector2(798, 594)
+
+[node name="directions" parent="Direction4" instance=ExtResource("7_pmng6")]
+texture_filter = 1
+position = Vector2(6, 2.08165e-12)
+scale = Vector2(6, 6)
+
+[node name="Direction5" type="Node2D" parent="."]
+position = Vector2(1026, 612)
+
+[node name="directions" parent="Direction5" instance=ExtResource("7_pmng6")]
+texture_filter = 1
+position = Vector2(6, 2.08165e-12)
+scale = Vector2(6, 6)
+
+[node name="scoreLabel" type="Label" parent="."]
+offset_left = 504.0
+offset_top = 606.0
+offset_right = 648.0
+offset_bottom = 648.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
