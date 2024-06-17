@@ -1,54 +1,62 @@
+#difficulty selection screen
 extends Node2D
 
 var pos = 1
-# Called when the node enters the scene tree for the first time.
+var rows = 4
+var dist = 138
+
 func _ready():
-	pass # Replace with function body.
+	#highlight difficulty text on start
+	match Vars.difficulty:
+		1:
+			$easySelect.frame = 1
+		3:
+			$mediumSelect.frame = 1
+		5:
+			$hardSelect.frame = 1
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	if Input.is_action_just_pressed("ui_down") and pos == 3:
-		pos += 1
-		$menuSelect.position.y = 600
-	elif Input.is_action_just_pressed("ui_up") and pos == 4:
-		pos -= 1
-		$menuSelect.position.y = 398
-	elif Input.is_action_just_pressed("ui_down") and pos == 4:
-		pos = 1
-		$menuSelect.position.y = 126
-	elif Input.is_action_just_pressed("ui_down"):
-		pos += 1
-		$menuSelect.position.y += 136
-	elif Input.is_action_just_pressed("ui_up") and pos == 1:
-		pos = 4
-		$menuSelect.position.y = 600
-	elif Input.is_action_just_pressed("ui_up"):
-		pos -= 1
-		$menuSelect.position.y -= 136
-		
-	if Input.is_action_just_pressed("ui_accept") and pos == 1:
-		Vars.difficulty = 1
-	if Input.is_action_just_pressed("ui_accept") and pos == 2:
-		Vars.difficulty = 3
-	if Input.is_action_just_pressed("ui_accept") and pos == 3:
-		Vars.difficulty = 5
-	if Input.is_action_just_pressed("ui_accept") and pos == 4:
-		get_tree().change_scene_to_file.bind("res://Scenes/main_menu.tscn").call_deferred()
-		
-	if Vars.difficulty == 1:
-		$Label.text = "Current Difficulty: Easy"
-		$Settings1/easySelect.frame = 1
-		$Settings1/mediumSelect.frame = 0
-		$Settings1/hardSelect.frame = 0
-	elif Vars.difficulty == 3:
-		$Label.text = "Current Difficulty: Medium"
-		$Settings1/easySelect.frame = 0
-		$Settings1/mediumSelect.frame = 1
-		$Settings1/hardSelect.frame = 0
-	elif Vars.difficulty == 5:
-		$Label.text = "Current Difficulty: Hard"
-		$Settings1/easySelect.frame = 0
-		$Settings1/mediumSelect.frame = 0
-		$Settings1/hardSelect.frame = 1
+	#move the menu selector
+	if Input.is_action_just_pressed("ui_down"):
+		match pos:
+			3:
+				pos += 1
+				$menuSelect.position.y = 600
+			4:
+				pos = 1
+				$menuSelect.position.y = 126
+			_:
+				pos += 1
+				$menuSelect.position.y += dist
+	if Input.is_action_just_pressed("ui_up"):
+		match pos:
+			4:
+				pos -= 1
+				$menuSelect.position.y = 402
+			1:
+				pos = 4
+				$menuSelect.position.y = 600
+			_:
+				pos -= 1
+				$menuSelect.position.y -= dist
+
+	#set difficulty
+	if Input.is_action_just_pressed("ui_accept"):
+		match pos:
+			1:
+				Vars.difficulty = 1
+				$easySelect.frame = 1
+				$mediumSelect.frame = 0
+				$hardSelect.frame = 0
+			2:
+				Vars.difficulty = 3
+				$easySelect.frame = 0
+				$mediumSelect.frame = 1
+				$hardSelect.frame = 0
+			3:
+				Vars.difficulty = 5
+				$easySelect.frame = 0
+				$mediumSelect.frame = 0
+				$hardSelect.frame = 1
+			4:
+				get_tree().change_scene_to_file.bind("res://Scenes/main_menu.tscn").call_deferred()

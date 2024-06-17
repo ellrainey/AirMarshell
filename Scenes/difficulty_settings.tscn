@@ -10,19 +10,10 @@
 [node name="DifficultySettings" type="Node2D"]
 script = ExtResource("1_ke87o")
 
-[node name="Settings1" parent="." instance=ExtResource("1_jaeyj")]
+[node name="settingsBackground" parent="." instance=ExtResource("1_jaeyj")]
 texture_filter = 1
 position = Vector2(576, 324)
 scale = Vector2(6, 6)
-
-[node name="easySelect" parent="Settings1" instance=ExtResource("3_gi7oa")]
-position = Vector2(0.166667, -31.5)
-
-[node name="mediumSelect" parent="Settings1" instance=ExtResource("4_ijguw")]
-position = Vector2(1.66667, -10.3333)
-
-[node name="hardSelect" parent="Settings1" instance=ExtResource("5_tawl1")]
-position = Vector2(1.83333, 10.5)
 
 [node name="menuSelect" parent="." instance=ExtResource("3_foj5c")]
 texture_filter = 1
@@ -34,8 +25,17 @@ texture_filter = 1
 position = Vector2(66, 2.08165e-12)
 rotation = 3.14159
 
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_left = 915.0
-offset_right = 1152.0
-offset_bottom = 69.0
+[node name="easySelect" parent="." instance=ExtResource("3_gi7oa")]
+texture_filter = 1
+position = Vector2(576, 126)
+scale = Vector2(6, 6)
+
+[node name="mediumSelect" parent="." instance=ExtResource("4_ijguw")]
+texture_filter = 1
+position = Vector2(576, 264)
+scale = Vector2(6, 6)
+
+[node name="hardSelect" parent="." instance=ExtResource("5_tawl1")]
+texture_filter = 1
+position = Vector2(576, 402)
+scale = Vector2(6, 6)
