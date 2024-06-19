@@ -2,13 +2,13 @@
 
 importer="Aseprite AnimatedSprite2D Import"
 type="PackedScene"
-uid="uid://wpy0rhieio84"
-path="res://.godot/imported/PlaneBaseTEST7.aseprite-c0d1116890114a3d2f412247bc059e52.scn"
+uid="uid://bd6580gc620mt"
+path="res://.godot/imported/tutMeaning.aseprite-548d3459074d2378f10eff11ebce0fe4.scn"
 
 [deps]
 
-source_file="res://Sprites/PlaneBaseTEST7.aseprite"
-dest_files=["res://.godot/imported/PlaneBaseTEST7.aseprite-c0d1116890114a3d2f412247bc059e52.scn"]
+source_file="res://Sprites/tutMeaning.aseprite"
+dest_files=["res://.godot/imported/tutMeaning.aseprite-548d3459074d2378f10eff11ebce0fe4.scn"]
 
 [params]
 

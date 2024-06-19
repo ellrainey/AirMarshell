@@ -5,7 +5,7 @@ var playerLane = 3
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	#player movement
 	if Input.is_action_just_pressed("left") and playerLane >= 2:
 		playerLane -= 1

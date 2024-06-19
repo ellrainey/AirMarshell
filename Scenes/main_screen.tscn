@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c114i1x5cyfcd"]
+[gd_scene load_steps=8 format=3 uid="uid://o1oxq0k7v1lj"]
 
 [ext_resource type="Script" path="res://Scenes/main_screen.gd" id="1_6k54a"]
 [ext_resource type="Texture2D" uid="uid://ccipo6t20pgy8" path="res://Sprites/Screentest1.aseprite" id="2_hfc1s"]
 [ext_resource type="PackedScene" uid="uid://dtbqqc6hcahvj" path="res://Scenes/player.tscn" id="3_7hbsa"]
 [ext_resource type="PackedScene" uid="uid://b18lkel3ah6xu" path="res://Scenes/warning.tscn" id="4_1pkr7"]
-[ext_resource type="PackedScene" uid="uid://do1p22poicg68" path="res://Sprites/PlaneBaseTEST7.aseprite" id="5_fhkw3"]
+[ext_resource type="PackedScene" uid="uid://wpy0rhieio84" path="res://Sprites/PlaneBaseTEST7.aseprite" id="5_fhkw3"]
 [ext_resource type="Script" path="res://Sprites/PlaneBaseTEST7.gd" id="6_c6d4i"]
 [ext_resource type="PackedScene" uid="uid://7w12t65r5ddg" path="res://Sprites/directions2.aseprite" id="7_pmng6"]
 
@@ -37,6 +37,7 @@ texture_filter = 1
 
 [node name="planeSprite" parent="Plane2" instance=ExtResource("5_fhkw3")]
 scale = Vector2(6, 6)
+animation = &"gone"
 script = ExtResource("6_c6d4i")
 
 [node name="Plane3" type="Node2D" parent="."]
@@ -44,6 +45,7 @@ texture_filter = 1
 
 [node name="planeSprite" parent="Plane3" instance=ExtResource("5_fhkw3")]
 scale = Vector2(6, 6)
+animation = &"gone"
 script = ExtResource("6_c6d4i")
 
 [node name="Plane4" type="Node2D" parent="."]
@@ -51,6 +53,7 @@ texture_filter = 1
 
 [node name="planeSprite" parent="Plane4" instance=ExtResource("5_fhkw3")]
 scale = Vector2(6, 6)
+animation = &"gone"
 script = ExtResource("6_c6d4i")
 
 [node name="Plane5" type="Node2D" parent="."]
@@ -59,6 +62,7 @@ texture_filter = 1
 [node name="planeSprite" parent="Plane5" instance=ExtResource("5_fhkw3")]
 texture_filter = 1
 scale = Vector2(6, 6)
+animation = &"gone"
 script = ExtResource("6_c6d4i")
 
 [node name="Direction1" type="Node2D" parent="."]

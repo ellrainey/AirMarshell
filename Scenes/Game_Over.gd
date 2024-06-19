@@ -18,7 +18,7 @@ func _ready():
 	$diffLabel.text = diff
 	
 
-func _process(delta):
+func _process(_delta):
 	#selection and selector movement
 	if Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_up"):
 		match pos:

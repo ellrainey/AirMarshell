@@ -9,7 +9,7 @@ var last = first + ((rows - 1) * dist)
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	#selecion and selector movement
 	if Input.is_action_just_pressed("ui_down"):
 		match pos:
@@ -27,6 +27,8 @@ func _process(delta):
 		match pos:
 			1:
 				get_tree().change_scene_to_file.bind("res://Scenes/main_screen.tscn").call_deferred()
+			2:
+				get_tree().change_scene_to_file.bind("res://Scenes/tutorial.tscn").call_deferred()
 			3:
 				get_tree().change_scene_to_file.bind("res://Scenes/difficulty_settings.tscn").call_deferred()
 			4:

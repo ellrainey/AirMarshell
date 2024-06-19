@@ -25,7 +25,6 @@ func planeDirected(lane, correct):
 	get_node(planeFrame).time = 0
 	planeReady[lane - 1] = false
 	get_node(directionPath).set_frame_and_progress(0, 0)
-	score += 1
 
 func _process(delta):
 	#tick down warning timer if player is currently under warning
@@ -83,13 +82,14 @@ func _process(delta):
 	#planes being directed
 	var newDirectionPath = str("Direction", $Player.playerLane, "/directions" )
 	if planeReady[$Player.playerLane - 1] == true:
-		if $Player/turtleTEST3.stickDir == get_node(newDirectionPath).frame:
+		if $Player/turtleSprite.stickDir == get_node(newDirectionPath).frame:
 			planeDirected($Player.playerLane, true)
-		elif $Player/turtleTEST3.stickDir != 0 and $Player/Warning.visible == false:
+			score += 1
+		elif $Player/turtleSprite.stickDir != 0 and $Player/Warning.visible == false:
 			planeDirected($Player.playerLane, false)
 			$Player/Warning.visible = true
 			warningTime = 5
-		elif $Player/turtleTEST3.stickDir != 0 and $Player/Warning.visible == true: #and gameOver == false:
+		elif $Player/turtleSprite.stickDir != 0 and $Player/Warning.visible == true: #and gameOver == false:
 			Vars.finalScore = score
 			gameOver = true
 

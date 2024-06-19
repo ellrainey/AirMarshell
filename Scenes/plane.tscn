@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dcj5pa8x2r8dl"]
 
-[ext_resource type="PackedScene" uid="uid://do1p22poicg68" path="res://Sprites/PlaneBaseTEST7.aseprite" id="1_7dmuu"]
+[ext_resource type="PackedScene" uid="uid://wpy0rhieio84" path="res://Sprites/PlaneBaseTEST7.aseprite" id="1_7dmuu"]
 [ext_resource type="Script" path="res://Sprites/PlaneBaseTEST7.gd" id="2_jfart"]
 
 [node name="Plane" type="Node2D"]

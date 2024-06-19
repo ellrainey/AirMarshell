@@ -1,5 +1,46 @@
-[gd_scene format=3 uid="uid://qlg50l3maqrc"]
+[gd_scene load_steps=8 format=3 uid="uid://qlg50l3maqrc"]
+
+[ext_resource type="PackedScene" uid="uid://cxgkroxxtdii3" path="res://Sprites/tutControls.aseprite" id="1_abmyd"]
+[ext_resource type="Script" path="res://Scenes/tutorial.gd" id="1_hh6i0"]
+[ext_resource type="PackedScene" uid="uid://bq6ap8ay3l27t" path="res://Sprites/tutDir.aseprite" id="2_fmc8y"]
+[ext_resource type="PackedScene" uid="uid://bd6580gc620mt" path="res://Sprites/tutMeaning.aseprite" id="3_vqptx"]
+[ext_resource type="PackedScene" uid="uid://c4s31fhstyc1r" path="res://Sprites/tutReady.aseprite" id="4_iedem"]
+[ext_resource type="PackedScene" uid="uid://c24v1tywf6kc7" path="res://Sprites/tutWarning.aseprite" id="5_tfh5o"]
+[ext_resource type="PackedScene" uid="uid://h5b4n5u6ese4" path="res://Sprites/menuSelect.aseprite" id="6_oycxh"]
 
 [node name="Tutorial" type="Node2D"]
+script = ExtResource("1_hh6i0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="tut1" parent="." instance=ExtResource("1_abmyd")]
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(6, 6)
+
+[node name="tut2" parent="." instance=ExtResource("2_fmc8y")]
+visible = false
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(6, 6)
+
+[node name="tut3" parent="." instance=ExtResource("3_vqptx")]
+visible = false
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(6, 6)
+
+[node name="tut4" parent="." instance=ExtResource("4_iedem")]
+visible = false
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(6, 6)
+
+[node name="tut5" parent="." instance=ExtResource("5_tfh5o")]
+visible = false
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(6, 6)
+
+[node name="menuSelect" parent="." instance=ExtResource("6_oycxh")]
+texture_filter = 1
+position = Vector2(534, 612)
+scale = Vector2(6, 6)
