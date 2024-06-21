@@ -17,7 +17,7 @@ config/icon="res://Sprites/icon.svg"
 
 [aseprite_importers]
 
-aseprite_executable_path="/Applications/Aseprite.app/Contents/MacOS/aseprite"
+aseprite_executable_path="C:\\Program Files\\Aseprite\\Aseprite.exe"
 
 [autoload]
 

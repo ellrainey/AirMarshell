@@ -39,7 +39,7 @@ func _process(delta):
 
 	#determine if and when a plane spawns
 	time += delta
-	if time >= 1:
+	if time >= 0.5:
 		var planeSpawn = rng.randi_range(0, 2)
 		time = 0
 		if planeSpawn != 1:
@@ -82,14 +82,14 @@ func _process(delta):
 	#planes being directed
 	var newDirectionPath = str("Direction", $Player.playerLane, "/directions" )
 	if planeReady[$Player.playerLane - 1] == true:
-		if $Player/turtleSprite.stickDir == get_node(newDirectionPath).frame:
+		if $Player.stickDir == get_node(newDirectionPath).frame:
 			planeDirected($Player.playerLane, true)
 			score += 1
-		elif $Player/turtleSprite.stickDir != 0 and $Player/Warning.visible == false:
+		elif $Player.stickDir != 0 and $Player/Warning.visible == false:
 			planeDirected($Player.playerLane, false)
 			$Player/Warning.visible = true
 			warningTime = 5
-		elif $Player/turtleSprite.stickDir != 0 and $Player/Warning.visible == true: #and gameOver == false:
+		elif $Player.stickDir != 0 and $Player/Warning.visible == true: #and gameOver == false:
 			Vars.finalScore = score
 			gameOver = true
 
