@@ -1,7 +1,6 @@
 # AIRMARSHELL
 
-This game requires the Aseprite Importers plugin in order to edit in godot
-the readme for the plugin is pasted below:
+This game requires the Aseprite Importers plugin in order to edit in godot, the readme for the plugin is pasted below:
 
 # Godot 4 Aseprite Importers
 
