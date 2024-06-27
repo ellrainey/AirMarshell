@@ -29,7 +29,7 @@ texture_filter = 1
 
 [node name="planeSprite" parent="Plane1" instance=ExtResource("5_fhkw3")]
 scale = Vector2(6, 6)
-animation = &"success"
+animation = &"lose"
 script = ExtResource("6_c6d4i")
 
 [node name="Plane2" type="Node2D" parent="."]

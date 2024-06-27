@@ -72,7 +72,7 @@ func _process(delta):
 		if get_node(planePathGameOver).frame == 7 and gameOver == false:
 			Vars.finalScore = score
 			get_node(planePathGameOver).play("lose")
-			print(get_node(planePathGameOver).animation)
+			get_node(planePathGameOver).frame = 0
 			gameOver = true
 	if gameOver == true:
 		gameOverTime += 1

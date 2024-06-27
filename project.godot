@@ -22,6 +22,7 @@ aseprite_executable_path="C:\\Program Files\\Aseprite\\Aseprite.exe"
 [autoload]
 
 Vars="*res://vars.gd"
+SaveScript="*res://saveScript.gd"
 
 [display]
 

@@ -7,7 +7,7 @@ var first = 264
 var last = first + ((rows - 1) * dist)
 
 func _ready():
-	pass
+	SaveScript.load_game()
 
 func _process(_delta):
 	#selecion and selector movement
@@ -33,5 +33,6 @@ func _process(_delta):
 			3:
 				get_tree().change_scene_to_file.bind("res://Scenes/difficulty_settings.tscn").call_deferred()
 			4:
+				SaveScript.save_game()
 				get_tree().quit()
 	$menuSelect.position.y = first + ((pos - 1) * dist)
