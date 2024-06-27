@@ -39,7 +39,7 @@ func _process(delta):
 
 	#determine if and when a plane spawns
 	time += delta
-	if time >= 0.5:
+	if time >= 0.4:
 		var planeSpawn = rng.randi_range(0, 2)
 		time = 0
 		if planeSpawn != 1:

@@ -6,17 +6,16 @@ var dist = 108
 
 func _ready():
 	#game over screen score and difficulty display
-	var diff
-	match Vars.difficulty:
-		1:
-			diff = "easy"
-		3:
-			diff = "medium"
-		5:
-			diff = "hard"
 	$scoreLabel.text = str(Vars.finalScore)
-	$diffLabel.text = diff
-	
+	#var diff
+	#match Vars.difficulty:
+		#1:
+			#diff = "easy"
+		#3:
+			#diff = "medium"
+		#5:
+			#diff = "hard"
+	#$diffLabel.text = diff
 
 func _process(_delta):
 	#selection and selector movement

@@ -4,20 +4,55 @@ var playerLane = 3
 var rolling = false
 var weight = 0
 var stickDir = 0
+var startPos = 120
+var distBetween = 228
 
 func _ready():
-	$turtleSprite.speed_scale = 2
+	$turtleSprite.speed_scale = 2.25
 
 func _process(_delta):
 	#player movement with rolling animation
-	if not rolling:
-		if Input.is_action_just_pressed("left") and playerLane > 1:
+	print(startPos + ((playerLane - 1) * distBetween))
+	stickDir = 0
+	if rolling:
+		if position.x == startPos + ((playerLane - 1) * distBetween):
+			#if not (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
+			print("1")
+			rolling = false
+			$turtleSprite.play("midmid")
+			weight = 0
+			#else:
+				#playerLane += weight
+				#print("2")
+				#
+				#match weight:
+					#1:
+						#$turtleSprite.play("rollRight")
+					#-1:
+						#$turtleSprite.play("rollLeft")
+					#1:
+						#playerLane += 1
+						#rolling = true
+						#weight = 1
+						#$turtleSprite.play("rollRight")
+						#stickDir = 0
+					#-1:
+						#playerLane -= 1
+						#rolling = true
+						#weight = -1
+						#$turtleSprite.play("rollLeft")
+						#stickDir = 0
+						
+		else:
+			position.x = (120 + ((playerLane - 1 - weight) * 228)) + (weight * 57 * $turtleSprite.frame)
+	else:
+		if Input.is_action_pressed("left") and playerLane > 1:
 			playerLane -= 1
 			rolling = true
 			weight = -1
 			$turtleSprite.play("rollLeft")
 			stickDir = 0
-		elif Input.is_action_just_pressed("right") and playerLane < 5:
+		elif Input.is_action_pressed("right") and playerLane < 5:
 			playerLane += 1
 			rolling = true
 			weight = 1
@@ -63,9 +98,4 @@ func _process(_delta):
 				$turtleSprite.play("rightmid")
 			else:
 				$turtleSprite.play("midmid")
-	if rolling:
-		if position.x == 120 + ((playerLane - 1) * 228):
-			rolling = false
-			weight = 0
-		else:
-			position.x = (120 + ((playerLane - 1 - weight) * 228)) + (weight * 57 * $turtleSprite.frame)
+	
