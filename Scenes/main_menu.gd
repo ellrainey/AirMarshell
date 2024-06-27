@@ -11,6 +11,7 @@ func _ready():
 
 func _process(_delta):
 	#selecion and selector movement
+	#FIX: all menus have the same skeleton, so I should probably have menus extend a common scene eventually
 	if Input.is_action_just_pressed("ui_down"):
 		match pos:
 			rows:
@@ -33,5 +34,4 @@ func _process(_delta):
 				get_tree().change_scene_to_file.bind("res://Scenes/difficulty_settings.tscn").call_deferred()
 			4:
 				get_tree().quit()
-
 	$menuSelect.position.y = first + ((pos - 1) * dist)

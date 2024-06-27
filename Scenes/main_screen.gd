@@ -94,4 +94,5 @@ func _process(delta):
 			gameOver = true
 
 	#score display
+	#I want to make this look nicer in game eventually
 	$scoreLabel.text = str(score)

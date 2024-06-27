@@ -1,4 +1,5 @@
 #difficulty selection screen
+#FIX: ugly, I'll fix this when I make all menus extend a common scene
 extends Node2D
 
 var pos = 1
@@ -20,7 +21,7 @@ func _ready():
 		hard:
 			$hardSelect.frame = 1
 
-func _process(delta):
+func _process(_delta):
 	#selection and selector movement
 	if Input.is_action_just_pressed("ui_down"):
 		match pos:

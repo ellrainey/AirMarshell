@@ -32,5 +32,4 @@ func _process(_delta):
 					page += 1
 					var pageString = "tut" + str(page)
 					get_node(pageString).visible = true
-					
 	$menuSelect.position.x = first + ((pos - 1) * dist)

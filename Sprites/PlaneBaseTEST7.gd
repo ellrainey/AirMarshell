@@ -10,6 +10,7 @@ func _ready():
 
 func _process(delta):
 	#plane movement, based on difficulty and score
+	#FIX: eventually I'll move this to a script attached to the Plane node, rather than the sprite
 	if exists:
 		animation = "standard"
 		if get_parent().get_parent().score <= 50:

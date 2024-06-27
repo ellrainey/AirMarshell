@@ -37,7 +37,6 @@ texture_filter = 1
 
 [node name="planeSprite" parent="Plane2" instance=ExtResource("5_fhkw3")]
 scale = Vector2(6, 6)
-animation = &"gone"
 script = ExtResource("6_c6d4i")
 
 [node name="Plane3" type="Node2D" parent="."]
@@ -45,7 +44,6 @@ texture_filter = 1
 
 [node name="planeSprite" parent="Plane3" instance=ExtResource("5_fhkw3")]
 scale = Vector2(6, 6)
-animation = &"gone"
 script = ExtResource("6_c6d4i")
 
 [node name="Plane4" type="Node2D" parent="."]
@@ -53,7 +51,6 @@ texture_filter = 1
 
 [node name="planeSprite" parent="Plane4" instance=ExtResource("5_fhkw3")]
 scale = Vector2(6, 6)
-animation = &"gone"
 script = ExtResource("6_c6d4i")
 
 [node name="Plane5" type="Node2D" parent="."]
@@ -62,7 +59,6 @@ texture_filter = 1
 [node name="planeSprite" parent="Plane5" instance=ExtResource("5_fhkw3")]
 texture_filter = 1
 scale = Vector2(6, 6)
-animation = &"gone"
 script = ExtResource("6_c6d4i")
 
 [node name="Direction1" type="Node2D" parent="."]

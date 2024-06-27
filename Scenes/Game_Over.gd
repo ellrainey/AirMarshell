@@ -6,7 +6,7 @@ var dist = 108
 
 func _ready():
 	#game over screen score and difficulty display
-	$scoreLabel.text = str(Vars.finalScore)
+	#FIX: I will eventually make the game over screen display the difficulty of the last run
 	#var diff
 	#match Vars.difficulty:
 		#1:
@@ -16,6 +16,7 @@ func _ready():
 		#5:
 			#diff = "hard"
 	#$diffLabel.text = diff
+	$scoreLabel.text = str(Vars.finalScore)
 
 func _process(_delta):
 	#selection and selector movement
@@ -31,5 +32,4 @@ func _process(_delta):
 				get_tree().change_scene_to_file.bind("res://Scenes/main_screen.tscn").call_deferred()
 			2:
 				get_tree().change_scene_to_file.bind("res://Scenes/main_menu.tscn").call_deferred()
-
 	$menuSelect.position.y = first + ((pos - 1) * dist)
