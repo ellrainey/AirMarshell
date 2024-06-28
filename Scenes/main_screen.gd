@@ -4,9 +4,9 @@ var rng = RandomNumberGenerator.new()
 var playerPlaneReady = false
 var planeReady = [false, false, false, false, false]
 var score = 0
-var gameOver = false
+#var gameOver = false
 var time = 0
-var gameOverTime = 0
+#var gameOverTime = 0
 var warningTime = 0
 
 func _ready():
@@ -63,21 +63,24 @@ func _process(delta):
 	#if plane is in correct range of frames, plane is ready
 	for i in range(5):
 		var planePathReady = str("Plane", i+1, "/planeSprite")
-		if 2 <= get_node(planePathReady).frame and get_node(planePathReady).frame <= 6 and gameOver == false:
+		if 2 <= get_node(planePathReady).frame and get_node(planePathReady).frame <= 6: #and gameOver == false:
 			planeReady[i] = true#something about pplaneready is messing stuff up
 
 	#game over
 	for i in range(5):
 		var planePathGameOver = str("Plane", i+1, "/planeSprite")
-		if get_node(planePathGameOver).frame == 7 and gameOver == false:
+		if get_node(planePathGameOver).frame == 7: #and gameOver == false:
 			Vars.finalScore = score
 			get_node(planePathGameOver).play("lose")
 			get_node(planePathGameOver).frame = 0
-			gameOver = true
-	if gameOver == true:
-		gameOverTime += 1
-	if gameOverTime == 10:
-		get_tree().change_scene_to_file.bind("res://Scenes/Game_Over.tscn").call_deferred()
+			#gameOver = true
+			#FIX: comment out line below when plane explosion is working
+			get_tree().change_scene_to_file.bind("res://Scenes/Game_Over.tscn").call_deferred()
+	#FIX: this is for a future brief plane explosion before game over, will add eventually
+	#if gameOver == true:
+		#gameOverTime += 1
+	#if gameOverTime == 10:
+		#get_tree().change_scene_to_file.bind("res://Scenes/Game_Over.tscn").call_deferred()
 
 	#planes being directed
 	var newDirectionPath = str("Direction", $Player.playerLane, "/directions" )
@@ -91,7 +94,9 @@ func _process(delta):
 			warningTime = 5
 		elif $Player.stickDir != 0 and $Player/Warning.visible == true: #and gameOver == false:
 			Vars.finalScore = score
-			gameOver = true
+			#gameOver = true
+			#FIX: comment out line below when plane explosion is working
+			get_tree().change_scene_to_file.bind("res://Scenes/Game_Over.tscn").call_deferred()
 
 	#score display
 	#I want to make this look nicer in game eventually
