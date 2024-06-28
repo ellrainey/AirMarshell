@@ -33,6 +33,5 @@ func _process(_delta):
 			3:
 				get_tree().change_scene_to_file.bind("res://Scenes/difficulty_settings.tscn").call_deferred()
 			4:
-				SaveScript.save_game()
 				get_tree().quit()
 	$menuSelect.position.y = first + ((pos - 1) * dist)

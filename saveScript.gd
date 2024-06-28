@@ -4,12 +4,8 @@ extends Node
 const SAVE_GAME_PATH := "user://savegame.save"
 
 func save():
-	var save_dict = {
-		"highScoreE" : Vars.highScoreE,
-		"highScoreM" : Vars.highScoreM,
-		"highScoreH" : Vars.highScoreH
-	}
-	return save_dict
+	var save_array = [Vars.highScoreE, Vars.highScoreM, Vars.highScoreH]
+	return save_array
 
 func save_game():
 	var save_game = FileAccess.open(SAVE_GAME_PATH, FileAccess.WRITE)
@@ -20,6 +16,7 @@ func load_game():
 	if not FileAccess.file_exists(SAVE_GAME_PATH):
 		return
 		
+		print(SAVE_GAME_PATH)
 	var save_game = FileAccess.open(SAVE_GAME_PATH, FileAccess.READ)
 	
 	while save_game.get_position() < save_game.get_length():
@@ -27,5 +24,6 @@ func load_game():
 		var json = JSON.new()
 		var parse_result = json.parse(json_string)
 		var node_data = json.get_data()
-		
-		print(node_data)
+		Vars.highScoreE = node_data[0]
+		Vars.highScoreM = node_data[1]
+		Vars.highScoreH = node_data[2]

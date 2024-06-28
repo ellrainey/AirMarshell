@@ -38,6 +38,7 @@ func _ready():
 			Vars.highScoreM = highScore
 		3:
 			Vars.highScoreH = highScore
+	SaveScript.save_game()
 
 func _process(_delta):
 	#selection and selector movement
